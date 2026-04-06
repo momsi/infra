@@ -1,0 +1,33 @@
+# NixOS
+result
+result-*
+*.drv
+.nix-profile
+/.nix-defexpr
+/.nix-shell
+
+# opencode
+.opencode/
+.opencode.yaml
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# VSCodium
+.vscodium/
+
+# Git
+.git/
+.gitattributes
+.gitmodules
+*.orig
+*~
+
+# Editor/IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
