@@ -2,7 +2,7 @@
   description = "NixOS configurations for gaia and future hosts";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     hyprland.url = "github:hyprwm/Hyprland/v0.54.2";
   };
 
