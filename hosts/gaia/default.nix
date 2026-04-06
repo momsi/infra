@@ -3,7 +3,7 @@
 {
   imports = [
     ../desktop.nix
-    ./hardware-configuration.nix
+    ./disko.nix
   ];
 
   networking.hostName = "gaia";
@@ -43,4 +43,11 @@
   environment.systemPackages = with pkgs; [
     neofetch
   ];
+
+  # ZRAM swap (replaces traditional swap)
+  zramSwap.enable = true;
+  swapDevices = [];
+
+  # AMD CPU microcode
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault true;
 }
