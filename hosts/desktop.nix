@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hyprland, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Time and locale
@@ -42,7 +42,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${lib.makeBinPath [pkgs.greetd.tuigreet hyprland.packages.${pkgs.system}.default]}/bin/tuigreet --time --cmd Hyprland";
+        command = "${lib.makeBinPath [pkgs.tuigreet pkgs.hyprland]}/bin/tuigreet --time --cmd Hyprland";
         user = "greeter";
       };
     };
