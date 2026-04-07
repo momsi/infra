@@ -50,7 +50,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.hyprland}/bin/Hyprland --config /etc/xdg/hypr/hyprland.conf";
         user = "momsi";
       };
     };
