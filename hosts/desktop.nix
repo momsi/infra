@@ -29,6 +29,9 @@
     curl
     keepassxc
     brave
+    kitty
+    fuzzel
+    waybar
   ];
 
   # Network
@@ -57,6 +60,25 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    settings = {
+      "$terminal" = "kitty";
+      "$menu" = "fuzzel";
+      "$mainMod" = "SUPER";
+      exec-once = [ "waybar" ];
+      bind = [
+        "$mainMod, Return, exec, $terminal"
+        "$mainMod, Space, exec, $menu"
+        "$mainMod, Q, killactive,"
+        "$mainMod, F, fullscreen,"
+        "$mainMod SHIFT, M, exit,"
+        "$mainMod, V, togglefloating,"
+        "ALT, Tab, cyclenext,"
+      ];
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
+      ];
+    };
   };
 
   # XDG portal for Wayland
