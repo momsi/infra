@@ -58,7 +58,6 @@
   # Keyboard layout - German
   console.keyMap = "de";
   services.xserver.layout = "de";
-  services.displayManager.sddm.xkbLayout = "de";
 
   # Git configuration
   programs.git = {
