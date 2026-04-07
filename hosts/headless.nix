@@ -5,6 +5,11 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "de_DE.UTF-8";
 
+  # German keyboard layout in initrd (LUKS prompt)
+  boot.initrd.preDeviceCommands = ''
+    loadkeys de
+  '';
+
   # User
   users.users.momsi = {
     isNormalUser = true;
