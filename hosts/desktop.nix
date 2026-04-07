@@ -29,9 +29,6 @@
     curl
     keepassxc
     brave
-    kitty
-    fuzzel
-    waybar
   ];
 
   # Network
@@ -45,42 +42,21 @@
     pulse.enable = true;
   };
 
-  # Display Manager (autologin momsi)
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland --config /etc/xdg/hypr/hyprland.conf";
-        user = "momsi";
-      };
+  # Display Manager (SDDM with autologin)
+  services.xserver.enable = true;
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "momsi";
     };
   };
 
-  # Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  # Hyprland config
-  environment.etc."xdg/hypr/hyprland.conf".text = ''
-    $terminal = kitty
-    $menu = fuzzel
-    $mainMod = SUPER
-
-    bind = $mainMod, Return, exec, $terminal
-    bind = $mainMod, Space, exec, $menu
-    bind = $mainMod, Q, killactive,
-    bind = $mainMod, F, fullscreen,
-    bind = $mainMod SHIFT, M, exit,
-    bind = $mainMod, V, togglefloating,
-    bind = ALT, Tab, cyclenext,
-
-    bindm = $mainMod, mouse:272, movewindow
-    bindm = $mainMod, mouse:273, resizewindow
-
-    exec-once = waybar
-  '';
+  # KDE Plasma 6
+  services.desktopManager.plasma6.enable = true;
 
   # XDG portal for Wayland
   xdg.portal = {
