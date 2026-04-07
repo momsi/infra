@@ -42,6 +42,10 @@
   # Gaia-specific packages
   environment.systemPackages = with pkgs; [
     neofetch
+    vscodium
+    python3
+    opencode
+    nodejs
   ];
 
   # ZRAM swap (replaces traditional swap)
@@ -50,4 +54,19 @@
 
   # AMD CPU microcode
   hardware.cpu.amd.updateMicrocode = lib.mkDefault true;
+
+  # Keyboard layout - German
+  console.keyMap = "de";
+  services.xserver.layout = "de";
+  services.displayManager.sddm.xkbLayout = "de";
+
+  # Git configuration
+  programs.git = {
+    enable = true;
+    config = {
+      user.name = "momsi";
+      user.email = "momsi@gaia";
+      core.editor = "vim";
+    };
+  };
 }
