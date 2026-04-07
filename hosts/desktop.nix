@@ -45,13 +45,13 @@
     pulse.enable = true;
   };
 
-  # Display Manager
+  # Display Manager (autologin momsi)
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
-        user = "greeter";
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "momsi";
       };
     };
   };
