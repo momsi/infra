@@ -60,26 +60,27 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    settings = {
-      "$terminal" = "kitty";
-      "$menu" = "fuzzel";
-      "$mainMod" = "SUPER";
-      exec-once = [ "waybar" ];
-      bind = [
-        "$mainMod, Return, exec, $terminal"
-        "$mainMod, Space, exec, $menu"
-        "$mainMod, Q, killactive,"
-        "$mainMod, F, fullscreen,"
-        "$mainMod SHIFT, M, exit,"
-        "$mainMod, V, togglefloating,"
-        "ALT, Tab, cyclenext,"
-      ];
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
-    };
   };
+
+  # Hyprland config
+  environment.etc."xdg/hypr/hyprland.conf".text = ''
+    $terminal = kitty
+    $menu = fuzzel
+    $mainMod = SUPER
+
+    bind = $mainMod, Return, exec, $terminal
+    bind = $mainMod, Space, exec, $menu
+    bind = $mainMod, Q, killactive,
+    bind = $mainMod, F, fullscreen,
+    bind = $mainMod SHIFT, M, exit,
+    bind = $mainMod, V, togglefloating,
+    bind = ALT, Tab, cyclenext,
+
+    bindm = $mainMod, mouse:272, movewindow
+    bindm = $mainMod, mouse:273, resizewindow
+
+    exec-once = waybar
+  '';
 
   # XDG portal for Wayland
   xdg.portal = {
