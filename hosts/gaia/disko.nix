@@ -11,7 +11,7 @@
           partitions = {
             ESP = {
               label = "boot";
-              size = "513MiB";
+              size = "513M";
               type = "EF00";
               content = {
                 type = "filesystem";
