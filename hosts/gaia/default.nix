@@ -12,8 +12,7 @@
   users.users.momsi = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    # hashedPassword = "$6$..."; # Use: openssl passwd -6 <password>
-    password = "p4ssw0rd"; # placeholder
+    password = "p4ssw0rd";
   };
 
   # Boot (system-specific)
@@ -40,7 +39,7 @@
 
 # Gaia-specific packages
   environment.systemPackages = with pkgs; [
-    neofetch
+    fastfetch
     vscodium
     python3
     opencode
