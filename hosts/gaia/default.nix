@@ -12,7 +12,8 @@
   users.users.momsi = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    password = "p4ssw0rd";
+    # hashedPassword = "$6$..."; # Use: openssl passwd -6 <password>
+    password = "p4ssw0rd"; # placeholder
   };
 
   # Boot (system-specific)
@@ -32,7 +33,7 @@
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true;
+    # open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
