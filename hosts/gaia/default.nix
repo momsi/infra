@@ -28,14 +28,42 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
+  };
+
+  hardware.opengl = {
+    enable = true;
   };
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
+    open = false;
     modesetting.enable = true;
-    # open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # Steam + Gaming
+  programs.steam = {
+    enable = true;
+    package = pkgs.steam.override {
+      extraEnv = {
+        PIPEWIRE_NODE = "Game";
+        PULSE_SINK = "Game";
+        PROTON_ENABLE_HDR = "1";
+        PROTON_ENABLE_WAYLAND = "1";
+        PROTON_USE_NTSYNC = "1";
+        PROTON_ENABLE_NVAPI = "1";
+        DXVK_HDR = "1";
+      };
+    };
+  };
+  programs.gamemode.enable = true;
+
+  # AppImage support for games
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
 # Gaia-specific packages
